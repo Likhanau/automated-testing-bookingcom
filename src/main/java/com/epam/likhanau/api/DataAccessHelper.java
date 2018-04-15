@@ -27,6 +27,13 @@ public class DataAccessHelper {
         data2.setMinResultList(10);
         data.add(data2);
 
+
+        CheckMoreThenHotelsData data3 = new CheckMoreThenHotelsData();
+        data3.setCityDir("Вена");
+        data3.setDateFrom(1526688000000l);
+        data3.setMinResultList(7);
+        data.add(data3);
+
         return data;
 
     }
