@@ -1,6 +1,5 @@
 package com.epam.likhanau.pageobject;
 
-import com.epam.likhanau.data.CheckMoreThenHotelsData;
 import com.epam.likhanau.data.NearAirportSearchData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

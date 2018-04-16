@@ -4,7 +4,6 @@ package com.epam.likhanau.listener;
 import com.epam.likhanau.api.WebDriverConfig;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -26,14 +25,13 @@ public class SetUpDataListener implements ITestListener {
 
     @Override
     public void onFinish(ITestContext arg0) {
-        log.info("********** Quit browser " + getProperties("browser") + "**********\n\n\n" );
+        log.info("********** Quit browser " + getProperties("browser") + "**********\n\n\n");
         driver.quit();
-
     }
 
     @Override
     public void onStart(ITestContext arg0) {
-        log.info("********** Start browser " + getProperties("browser") + "**********\n\n\n" );
+        log.info("********** Start browser " + getProperties("browser") + "**********\n\n\n");
         driver.manage().window().maximize();
         driver.get(getProperties("url"));
     }
@@ -59,7 +57,6 @@ public class SetUpDataListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult res) {
         log.info("========== Start test==========  " + res.getMethod().getMethodName() + "\n");
-
     }
 
     @Override

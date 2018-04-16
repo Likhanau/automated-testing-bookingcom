@@ -1,7 +1,7 @@
 package com.epam.likhanau.api;
 
 
-import com.epam.likhanau.data.CheckMoreThenHotelsData;
+import com.epam.likhanau.data.SearchHotelData;
 import com.epam.likhanau.data.NearAirportSearchData;
 
 import java.util.ArrayList;
@@ -10,25 +10,25 @@ import java.util.List;
 
 public class DataAccessHelper {
 
-    public static List<CheckMoreThenHotelsData> getCheckMoreThenHotelsData() {
+    public static List<SearchHotelData> getCheckCertainСountOfAvailableHotelsData() {
 
         // TODO Переписать, добавить выгрузку из файла
-        List<CheckMoreThenHotelsData> data = new ArrayList<>();
+        List<SearchHotelData> data = new ArrayList<>();
 
-        CheckMoreThenHotelsData data1 = new CheckMoreThenHotelsData();
+        SearchHotelData data1 = new SearchHotelData();
         data1.setCityDir("Рига");
         data1.setDateFrom(1525132800000l);
         data1.setMinResultList(5);
         data.add(data1);
 
-        CheckMoreThenHotelsData data2 = new CheckMoreThenHotelsData();
+        SearchHotelData data2 = new SearchHotelData();
         data2.setCityDir("Мадрид");
         data2.setDateFrom(1526688000000l);
         data2.setMinResultList(10);
         data.add(data2);
 
 
-        CheckMoreThenHotelsData data3 = new CheckMoreThenHotelsData();
+        SearchHotelData data3 = new SearchHotelData();
         data3.setCityDir("Вена");
         data3.setDateFrom(1526688000000l);
         data3.setMinResultList(7);

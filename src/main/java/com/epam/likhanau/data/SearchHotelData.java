@@ -3,13 +3,13 @@ package com.epam.likhanau.data;
 
 import java.util.Objects;
 
-public class CheckMoreThenHotelsData {
+public class SearchHotelData {
     private Integer minResultList;
     private String cityDir;
     private Long dateFrom;
 
 
-    public CheckMoreThenHotelsData() {
+    public SearchHotelData() {
     }
 
     public Integer getMinResultList() {
@@ -41,7 +41,7 @@ public class CheckMoreThenHotelsData {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CheckMoreThenHotelsData that = (CheckMoreThenHotelsData) o;
+        SearchHotelData that = (SearchHotelData) o;
         return Objects.equals(minResultList, that.minResultList) &&
                 Objects.equals(cityDir, that.cityDir) &&
                 Objects.equals(dateFrom, that.dateFrom);
@@ -55,7 +55,7 @@ public class CheckMoreThenHotelsData {
 
     @Override
     public String toString() {
-        return "CheckMoreThenHotelsData{" +
+        return "SearchHotelData{" +
                 "minResultList=" + minResultList +
                 ", cityDir='" + cityDir + '\'' +
                 ", dateFrom=" + dateFrom +

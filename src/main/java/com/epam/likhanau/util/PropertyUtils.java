@@ -9,27 +9,25 @@ import java.util.Properties;
 
 public class PropertyUtils {
 
-	private static final Logger log = Logger.getLogger(PropertyUtils.class);
-	
-	private final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
-	
-	
+    private static final Logger log = Logger.getLogger(PropertyUtils.class);
 
-	public static String getProperties(String param) {
-		Properties props = new Properties();
-		
-		try(FileInputStream fis = new FileInputStream(PATH_TO_PROPERTIES);
-				InputStreamReader isr =	new InputStreamReader(fis, "UTF-8")) {
-				props.load(isr);
-		} catch (IOException e) {
-			log.error("Error in properties file ", e);
-		}
+    private final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
 
-		if (props.getProperty(param) == null) {
-			log.error("!!! --- Parameter " + param + " is not in file " + PATH_TO_PROPERTIES);
-		}
-		
-		return props.getProperty(param);
-		
-	}
+    public static String getProperties(String param) {
+        Properties props = new Properties();
+
+        try (FileInputStream fis = new FileInputStream(PATH_TO_PROPERTIES);
+             InputStreamReader isr = new InputStreamReader(fis, "UTF-8")) {
+            props.load(isr);
+        } catch (IOException e) {
+            log.error("Error in properties file ", e);
+        }
+
+        if (props.getProperty(param) == null) {
+            log.error("!!! --- Parameter " + param + " is not in file " + PATH_TO_PROPERTIES);
+        }
+
+        return props.getProperty(param);
+
+    }
 }

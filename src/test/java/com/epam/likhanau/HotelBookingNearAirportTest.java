@@ -16,11 +16,11 @@ import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 
-@Listeners(value=SetUpDataListener.class)
+@Listeners(value = SetUpDataListener.class)
 public class HotelBookingNearAirportTest {
     private final Logger log = Logger.getLogger(this.getClass());
 
-    @Test(dataProvider="nearAirportSearchData")
+    @Test(dataProvider = "nearAirportSearchData")
     public void searchHotelNearAirport(NearAirportSearchData data) throws InterruptedException {
 
         log.info("Check data: " + data);
@@ -38,9 +38,9 @@ public class HotelBookingNearAirportTest {
         Thread.sleep(10000);
 
         ResultHotelPage resultPage = new ResultHotelPage();
-        Integer resultLength = resultPage.checkMoreThenPlace();
+        Integer resultLength = resultPage.getAmountOfAvailableHotels();
 
-        assertTrue( resultLength >= data.getMinResultList());
+        assertTrue(resultLength >= data.getMinResultList());
 
     }
 
@@ -48,9 +48,9 @@ public class HotelBookingNearAirportTest {
     @DataProvider
     private Object[][] nearAirportSearchData() {
         List<NearAirportSearchData> dataList = DataAccessHelper.getNearAirportSearchData();
-        Object [][] objArray = new Object[dataList.size()][];
+        Object[][] objArray = new Object[dataList.size()][];
 
-        for(int i=0;i< dataList.size();i++){
+        for (int i = 0; i < dataList.size(); i++) {
             objArray[i] = new Object[1];
             objArray[i][0] = dataList.get(i);
         }

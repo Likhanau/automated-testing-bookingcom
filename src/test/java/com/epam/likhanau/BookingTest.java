@@ -1,7 +1,7 @@
 package com.epam.likhanau;
 
 import com.epam.likhanau.api.DataAccessHelper;
-import com.epam.likhanau.data.CheckMoreThenHotelsData;
+import com.epam.likhanau.data.SearchHotelData;
 import com.epam.likhanau.listener.SetUpDataListener;
 import com.epam.likhanau.pageobject.HotelSearchPage;
 import com.epam.likhanau.pageobject.ResultHotelPage;
@@ -15,13 +15,13 @@ import java.util.List;
 import static org.testng.Assert.assertTrue;
 
 
-@Listeners(value=SetUpDataListener.class)
+@Listeners(value = SetUpDataListener.class)
 public class BookingTest {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
-    @Test(dataProvider="dataForСheckMoreThenHotels")
-    public void checkMoreThenHotels(CheckMoreThenHotelsData data) throws InterruptedException {
+    @Test(dataProvider = "dataForCheckCertainСountOfAvailableHotels")
+    public void checkCertainСountOfAvailableHotels(SearchHotelData data) throws InterruptedException {
 
         log.info("Check for data: " + data);
 
@@ -31,19 +31,19 @@ public class BookingTest {
         Thread.sleep(10000);
 
         ResultHotelPage resultPage = new ResultHotelPage();
-        Integer resultLength = resultPage.checkMoreThenPlace();
+        Integer resultLength = resultPage.getAmountOfAvailableHotels();
 
-        assertTrue( resultLength >= data.getMinResultList());
+        assertTrue(resultLength >= data.getMinResultList());
 
     }
 
 
     @DataProvider
-    private Object[][] dataForСheckMoreThenHotels() {
-        List<CheckMoreThenHotelsData> dataList = DataAccessHelper.getCheckMoreThenHotelsData();
-        Object [][] objArray = new Object[dataList.size()][];
+    private Object[][] dataForCheckCertainСountOfAvailableHotels() {
+        List<SearchHotelData> dataList = DataAccessHelper.getCheckCertainСountOfAvailableHotelsData();
+        Object[][] objArray = new Object[dataList.size()][];
 
-        for(int i=0;i< dataList.size();i++){
+        for (int i = 0; i < dataList.size(); i++) {
             objArray[i] = new Object[1];
             objArray[i][0] = dataList.get(i);
         }

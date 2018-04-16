@@ -1,7 +1,7 @@
 package com.epam.likhanau.pageobject;
 
 
-import com.epam.likhanau.data.CheckMoreThenHotelsData;
+import com.epam.likhanau.data.SearchHotelData;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,22 +27,18 @@ public class HotelSearchPage extends BasePage {
     @FindBy(xpath = "//a[contains(@href,'https://www.booking.com/airport')]")
     private WebElement airportButton;
 
-
-    public HotelSearchPage findDataPlace(CheckMoreThenHotelsData data) throws InterruptedException {
+    public HotelSearchPage findDataPlace(SearchHotelData data) throws InterruptedException {
         // CONVERT DATE TO MILLISECONDS https://www.freeformatter.com/epoch-timestamp-to-date-converter.html
 
         cityDir.clear();
         cityDir.sendKeys(data.getCityDir());
 
         calendarFrom.click();
-        getDriver().findElement(findDateById(data.getDateFrom())).click();
-        Thread.sleep(2000);
 
-//        calendarTo.click();
-//        Thread.sleep(2000);
-//        getDriver().findElement(findDateById(data.getDateTo())).click();
-//
-//        Thread.sleep(1000);
+        By dateSelector = By.cssSelector("td[data-id='" + data.getDateFrom() + "']");
+        WebElement dateWebElement = getDriver().findElement(dateSelector);
+        dateWebElement.click();
+        Thread.sleep(2000);
 
         showMePricesButton.click();
 
@@ -55,11 +51,6 @@ public class HotelSearchPage extends BasePage {
         airportButton.click();
 
         return this;
-    }
-
-
-    public By findDateById(Long id){
-        return By.cssSelector("td[data-id='" + id + "']");
     }
 
 }

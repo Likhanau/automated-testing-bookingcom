@@ -11,7 +11,7 @@ public class ResultHotelPage extends BasePage {
     @FindBy(css = "div[data-hotelid]")
     private List<WebElement> resultList;
 
-    public Integer checkMoreThenPlace(){
+    public Integer getAmountOfAvailableHotels(){
         if(resultList != null){
             log.info(" ===== SUCCESS RESULT =========, length = " + resultList.size() + ";");
         } else {
