@@ -20,7 +20,7 @@ import static org.testng.Assert.assertTrue;
 public class HotelBookingNearAirportTest {
     private final Logger log = Logger.getLogger(this.getClass());
 
-    @Test(dataProvider = "nearAirportSearchData")
+    @Test(dataProvider = "searchHotelNearMinskAirportData")
     public void searchHotelNearAirport(NearAirportSearchData data) throws InterruptedException {
 
         log.info("Check data: " + data);
@@ -41,13 +41,11 @@ public class HotelBookingNearAirportTest {
         Integer resultLength = resultPage.getAmountOfAvailableHotels();
 
         assertTrue(resultLength >= data.getMinResultList());
-
     }
 
-
     @DataProvider
-    private Object[][] nearAirportSearchData() {
-        List<NearAirportSearchData> dataList = DataAccessHelper.getNearAirportSearchData();
+    private Object[][] searchHotelNearMinskAirportData() {
+        List<NearAirportSearchData> dataList = DataAccessHelper.getNearMinskAirportSearchData();
         Object[][] objArray = new Object[dataList.size()][];
 
         for (int i = 0; i < dataList.size(); i++) {

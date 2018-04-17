@@ -24,29 +24,59 @@ public class HotelSearchPage extends BasePage {
     @FindBy(css = "button[data-sb-id=main]")
     private WebElement showMePricesButton;
 
+    @FindBy(id = "group_adults")
+    private WebElement adultsButton;
+
+    @FindBy(id = "group_children")
+    private WebElement childrenButton;
+
+    @FindBy(id = "no_rooms")
+    private WebElement roomsButton;
+
     @FindBy(xpath = "//a[contains(@href,'https://www.booking.com/airport')]")
     private WebElement airportButton;
 
     public HotelSearchPage findDataPlace(SearchHotelData data) throws InterruptedException {
-        // CONVERT DATE TO MILLISECONDS https://www.freeformatter.com/epoch-timestamp-to-date-converter.html
 
         cityDir.clear();
         cityDir.sendKeys(data.getCityDir());
 
-        calendarFrom.click();
+        if (data.getCheckIn() != null) {
+            calendarFrom.click();
+            getDriver().findElement(By.xpath("//td[@data-id ='" + data.getCheckIn() + "']")).click();
+            Thread.sleep(2000);
+        }
 
-        By dateSelector = By.cssSelector("td[data-id='" + data.getDateFrom() + "']");
-        WebElement dateWebElement = getDriver().findElement(dateSelector);
-        dateWebElement.click();
-        Thread.sleep(2000);
+        if (data.getCheckOut() != null) {
+            calendarFrom.click();
+            getDriver().findElement(By.xpath("//td[@data-id ='" + data.getCheckOut() + "']")).click();
+            Thread.sleep(2000);
+        }
+
+        if (data.getAdultsNumber() != null) {
+            adultsButton.click();
+            getDriver().findElement(By.xpath("//select[@id='group_adults']/option[@value='" + data.getAdultsNumber() + "']")).click();
+        }
+        Thread.sleep(1000);
+
+        if (data.getChildrenNumber() != null) {
+            childrenButton.click();
+            getDriver().findElement(By.xpath("//select[@id='group_children']/option[@value='" + data.getChildrenNumber() + "']")).click();
+        }
+        Thread.sleep(1000);
+
+        if (data.getRoomsNumber() != null) {
+            roomsButton.click();
+            getDriver().findElement(By.xpath("//select[@id='no_rooms']/option[@value='" + data.getRoomsNumber() + "']")).click();
+        }
+        Thread.sleep(1000);
 
         showMePricesButton.click();
-
-
         return this;
     }
 
-    public HotelSearchPage pushAirportButton(){
+
+    public HotelSearchPage pushAirportButton() {
 
         airportButton.click();
 

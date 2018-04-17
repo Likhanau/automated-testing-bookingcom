@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.epam.likhanau</groupId>
-  <artifactId>bookingautotest</artifactId>
-  <version>1.0-SNAPSHOT</version>
+    <groupId>com.epam.likhanau</groupId>
+    <artifactId>bookingautotest</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
-  <properties>
-    <log4j.version>1.2.17</log4j.version>
-    <selenium-java.version>3.9.1</selenium-java.version>
-    <testng.version>6.10</testng.version>
-    <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <webdrivermanager.version>2.1.0</webdrivermanager.version>
-    <aspectj.version>1.8.12</aspectj.version>
-  </properties>
+    <properties>
+        <log4j.version>1.2.17</log4j.version>
+        <selenium-java.version>3.9.1</selenium-java.version>
+        <testng.version>6.10</testng.version>
+        <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <webdrivermanager.version>2.1.0</webdrivermanager.version>
+        <aspectj.version>1.8.12</aspectj.version>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>${selenium-java.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>${webdrivermanager.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${testng.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>${maven-compiler-plugin.version}</version>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven-compiler-plugin.version}</version>
+        </dependency>
+    </dependencies>
 
 
-  <build>
-    <!--<pluginManagement>-->
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler-plugin.version}</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
+    <build>
 
-    </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
 
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-  </build>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>

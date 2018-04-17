@@ -1,4 +1,4 @@
-package com.epam.likhanau.constant;
+package com.epam.likhanau.browser;
 
 public enum BrowserEnum {
     CHROME("chrome");

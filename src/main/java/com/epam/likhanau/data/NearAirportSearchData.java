@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class NearAirportSearchData {
     private Integer minResultList;
-    private Long dateFrom;
+    private Long checkIn;
 
     public NearAirportSearchData() {
     }
@@ -17,12 +17,12 @@ public class NearAirportSearchData {
         this.minResultList = minResultList;
     }
 
-    public Long getDateFrom() {
-        return dateFrom;
+    public Long getCheckIn() {
+        return checkIn;
     }
 
-    public void setDateFrom(Long dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setCheckIn(Long checkIn) {
+        this.checkIn = checkIn;
     }
 
     @Override
@@ -31,20 +31,20 @@ public class NearAirportSearchData {
         if (o == null || getClass() != o.getClass()) return false;
         NearAirportSearchData that = (NearAirportSearchData) o;
         return Objects.equals(minResultList, that.minResultList) &&
-                Objects.equals(dateFrom, that.dateFrom);
+                Objects.equals(checkIn, that.checkIn);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(minResultList, dateFrom);
+        return Objects.hash(minResultList, checkIn);
     }
 
     @Override
     public String toString() {
         return "NearAirportSearchData{" +
                 "minResultList=" + minResultList +
-                ", dateFrom=" + dateFrom +
+                ", checkIn=" + checkIn +
                 '}';
     }
 }

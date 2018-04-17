@@ -20,26 +20,21 @@ public class BookingTest {
 
     private final Logger log = Logger.getLogger(this.getClass());
 
-    @Test(dataProvider = "dataForCheckCertainСountOfAvailableHotels")
-    public void checkCertainСountOfAvailableHotels(SearchHotelData data) throws InterruptedException {
-
+    @Test(dataProvider = "dataForCheckCertainСountOfAvailableHotelsWithDifferentOptions")
+    public void checkCertainСountOfAvailableHotelsWithDifferentOptions(SearchHotelData data) throws InterruptedException {
         log.info("Check for data: " + data);
-
         HotelSearchPage page = new HotelSearchPage();
         page.findDataPlace(data);
-
         Thread.sleep(10000);
-
         ResultHotelPage resultPage = new ResultHotelPage();
         Integer resultLength = resultPage.getAmountOfAvailableHotels();
-
         assertTrue(resultLength >= data.getMinResultList());
-
     }
 
 
+
     @DataProvider
-    private Object[][] dataForCheckCertainСountOfAvailableHotels() {
+    private Object[][] dataForCheckCertainСountOfAvailableHotelsWithDifferentOptions() {
         List<SearchHotelData> dataList = DataAccessHelper.getCheckCertainСountOfAvailableHotelsData();
         Object[][] objArray = new Object[dataList.size()][];
 

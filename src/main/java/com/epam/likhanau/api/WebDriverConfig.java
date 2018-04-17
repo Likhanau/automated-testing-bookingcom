@@ -1,7 +1,7 @@
 package com.epam.likhanau.api;
 
 
-import com.epam.likhanau.constant.BrowserEnum;
+import com.epam.likhanau.browser.BrowserEnum;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;

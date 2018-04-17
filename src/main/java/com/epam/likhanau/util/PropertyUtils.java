@@ -14,20 +14,20 @@ public class PropertyUtils {
     private final static String PATH_TO_PROPERTIES = "src/main/resources/config.properties";
 
     public static String getProperties(String param) {
-        Properties props = new Properties();
+        Properties properties = new Properties();
 
-        try (FileInputStream fis = new FileInputStream(PATH_TO_PROPERTIES);
-             InputStreamReader isr = new InputStreamReader(fis, "UTF-8")) {
-            props.load(isr);
+        try (FileInputStream fileInputStream = new FileInputStream(PATH_TO_PROPERTIES);
+             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8")) {
+            properties.load(inputStreamReader);
         } catch (IOException e) {
             log.error("Error in properties file ", e);
         }
 
-        if (props.getProperty(param) == null) {
+        if (properties.getProperty(param) == null) {
             log.error("!!! --- Parameter " + param + " is not in file " + PATH_TO_PROPERTIES);
         }
 
-        return props.getProperty(param);
+        return properties.getProperty(param);
 
     }
 }

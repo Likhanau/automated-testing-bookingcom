@@ -36,7 +36,6 @@ public class SetUpDataListener implements ITestListener {
         driver.get(getProperties("url"));
     }
 
-
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult arg0) {
 
@@ -65,6 +64,4 @@ public class SetUpDataListener implements ITestListener {
         log.info("Test " + res.getMethod().getMethodName() + " is Success\n\n\n");
 
     }
-
-
 }
